@@ -20,7 +20,7 @@
 ### What can one do with WebAssembly?
 - Mostly everything you can do with javascript. Algorithms ran with near-native performance.
 
-###Is there something one can’t do?
+### Is there something one can’t do?
 - Compiling garbage collected languages seem to be a problem, MORE RESEARCH HERE...
 
 ### Which languages are supported?
