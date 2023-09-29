@@ -1,0 +1,32 @@
+<div class="board">
+    @for (int i = 0; i < 9; i++)
+    {
+        int squareNumber = i;
+        <Square @key=squareNumber value=values[squareNumber] ClickHandler="@(() => HandleClick(squareNumber))" />
+    }
+</div>
+
+@code {
+    private bool xTurn;
+    private char[] values;
+
+    public Board()
+    {
+        this.xTurn = false;
+        this.values = new char[9]
+        {' ', ' ', ' ',' ', ' ', ' ',' ', ' ', ' '};
+    }
+
+    private void HandleClick(int i)
+    {
+        if (values[i] != ' ')
+        {
+            return;
+        }
+        else
+        {
+            values[i] = xTurn ? 'X' : 'O';
+            xTurn = !xTurn;
+        }
+    }
+}

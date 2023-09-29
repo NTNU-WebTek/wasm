@@ -1,0 +1,9 @@
+.board {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #0a8efa;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+}
