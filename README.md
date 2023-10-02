@@ -1,44 +1,43 @@
 # wasm-specialization-course
 
 ### What problem or challenge led to Web Assembly?
-- Ability to run non-javascript code in the browser.
+- WASM solve two major issues : Portability & Interoperability. Portability because it offers developers to use other languages than JavaScript in the browser. Interoperability because it permits to coordinate connections and communication between differents system, apps, ....
 
 ### What is Web Assembly? Are there different definitions and understandings, or are people united in what it entails
-- WASM describes a standard, it is essentially a binary format which is a compilation target for languages such as C, C++, Rust.
+- Web Assembly abreviate as WASM is a standard. It is essentially binary instructions which exploitable for languages such as C, C++, Rust, python and more.
 
 ### Who owns or maintains it?
-- It is maintained by [W3C](https://www.w3.org/community/webassembly/)  group, meaning there are maintainers from all major browsers implementing features in their browsers and developing the standard.
+- WASM is maintained by World Wide Web Consortium : [W3C](https://www.w3.org/community/webassembly/). That means that there are maintainers from all major browsers implementing new features in their browsers and developing standards.
 
 ### Is it a standard or an implementation? Who maintains the standard? Who implements it?
-- W3C sub-group maintains the standard, 4 (3) major browsers implement WASM, meaning WASM can run in them.
+- The standard is maintains by a W3C sub-group. 4 (3) major browsers implement WASM, meaning WASM can run in them.
 
 ### Which browsers support it?
-- All major, firefox, safari and chromium based
-
-###A hello-world example in WebAssembly
+- All majors browser support WASM. Firefox, safari and chromium based. https://caniuse.com/wasm
 
 ### What can one do with WebAssembly?
-- Mostly everything you can do with javascript. Algorithms ran with near-native performance.
+- WASM can be used to do anything as using JavaScript. WASM performances are estimated at near-native performance.
 
 ### Is there something one can’t do?
-- Compiling garbage collected languages seem to be a problem, MORE RESEARCH HERE...
+- ?? WASM do not include the compiling garbage collected option of languages which seems to be a problem, MORE RESEARCH HERE... ??
 
 ### Which languages are supported?
-- Easily? C, C++, rust
-- Other non-garbage collected languages might work perfectly fine
-- There are frameworks in languages that are garbage collected (go, c#...) that can compile(?) to wasm, LOOK INTO IT.
+- Here is a list of every languages supported by WASM and their status : https://github.com/appcypher/awesome-wasm-langs.
+- We can note some used kanguages such as : C, C++, rust, python...
+- ?? There are frameworks in languages that are garbage collected (go, c#...) that can compile(?) to wasm, LOOK INTO IT. ??
+
 ### Is WebAssembly running in the browser only, or can it run on backend?
-WASM can be run on the backend the same way as javascript can be run on the backend. There are frameworks that allow you to do that, such as [wasmer](https://wasmer.io/).
+- WASM can be run on the backend the same way as javascript can be run on the backend. There are frameworks that allow you to do that, such as [wasmer](https://wasmer.io/).
 
 ### How does the architecture look like, the pipeline? How does it look like technically?
-Architeture as in instruction set etc?  
-What is meant by pipeline? compilation pipeline??  
+- ?? Architeture as in instruction set etc?  ??
+- ?? What is meant by pipeline? compilation pipeline??  ??
 
 ### What happens when an HTML page is reloaded?
-Program specific state is lost (variables in code), it can however be saved to local storage in the browser or cookies. Just like javascript!
+- It is similar to JavaScript. The program specific state (variables) is lost, it can however be saved to local storage in the browser or by using cookies.
 
 ### Can WebAssembly access cookies?
-IF a cookie can be accessed by JS, it can be accessed from WASM (using JS interfaces (FACT CHECK THAT))
+- ?? If a cookie can be accessed by JS, it can be accessed from WASM (using JS interfaces (FACT CHECK THAT)) ??
 
 ### Can one use JS libraries and call JS functions from WebAssembly? How about the other way around?
 Yes, and YES. Do some examples maybe?
@@ -62,7 +61,7 @@ Also allows to write webapps with no need to learn javascript/typescript.
 
 ### Describe that example.
 
-
+###A hello-world example in WebAssembly
 
 ### Implement that example in different languages.
 lets do a simple webapp with tictactoe in leptos and blazor
