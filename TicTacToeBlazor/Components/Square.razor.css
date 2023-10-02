@@ -11,5 +11,5 @@
     cursor: pointer;
 }
 .square:hover {
-    background-color: rgba(106, 202, 9, 0.8);
+    background-color: #FAD898;
 }

@@ -1,32 +1,51 @@
+<p>
+    Below is a simple Tic-Tac-Toe game. It is implemented in <b>C#</b> and is running in the browser using <a href="https://webassembly.org/">WebAssembly</a>!
+</p>
+
+<h2>Game status</h2>
+@switch (game.State)
+{
+    case TicTacToeGame.GameState.NotFinished:
+        <p>Next turn is: <b>@game.NextMove()</b>!</p>
+        break;
+    case TicTacToeGame.GameState.Tie:
+        <p>It's a <b>tie</b>!</p>
+        break;
+    case TicTacToeGame.GameState.WinnerX:
+        <p><b>X</b> wins! X always wins...</p>
+        break;
+    case TicTacToeGame.GameState.WinnerO:
+        <p><b>O</b> wins!</p>
+        break;
+}
+
 <div class="board">
     @for (int i = 0; i < 9; i++)
     {
-        int squareNumber = i;
-        <Square @key=squareNumber value=values[squareNumber] ClickHandler="@(() => HandleClick(squareNumber))" />
+        int index = i;
+        <Square @key=index value=game.GetCellState(index) ClickHandler="@(() => HandleClick(index))" />
     }
 </div>
 
+<br />
+
+@if (game.State == TicTacToeGame.GameState.NotFinished)
+{
+    <button class="btn btn-primary" @onclick="() => game.ResetGame()">Reset!</button>
+} else {
+    <button class="btn btn-primary" @onclick="() => game.ResetGame()">Play again!</button>
+
+}
+
 @code {
-    private bool xTurn;
-    private char[] values;
+    private TicTacToeGame game;
 
     public Board()
     {
-        this.xTurn = false;
-        this.values = new char[9]
-        {' ', ' ', ' ',' ', ' ', ' ',' ', ' ', ' '};
+        this.game = new TicTacToeGame();
     }
-
     private void HandleClick(int i)
     {
-        if (values[i] != ' ')
-        {
-            return;
-        }
-        else
-        {
-            values[i] = xTurn ? 'X' : 'O';
-            xTurn = !xTurn;
-        }
+        this.game.PlayCell(i);
     }
 }

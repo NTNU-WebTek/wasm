@@ -1,14 +1,5 @@
 <div class="square" @onclick="ClickHandler">@value</div>
 
-@* @code {
-    private char value = ' ';
-
-    private void changeValue() {
-        value = value == 'O' ? 'X':'O';
-    }
-
-} *@
-
 @functions {
     [Parameter]
     public char value {get;set;}
