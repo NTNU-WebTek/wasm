@@ -23,7 +23,7 @@
 
 ### Which languages are supported?
 - Here is a list of every languages supported by WASM and their status : https://github.com/appcypher/awesome-wasm-langs.
-- We can note some used kanguages such as : C, C++, rust, python...
+- We can note some used languages such as : C, C++, rust, python...
 - ?? There are frameworks in languages that are garbage collected (go, c#...) that can compile(?) to wasm, LOOK INTO IT. ??
 
 ### Is WebAssembly running in the browser only, or can it run on backend?
