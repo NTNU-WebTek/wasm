@@ -13,3 +13,7 @@
 .square:hover {
     background-color: #FAD898;
 }
+
+.square.winning-cell {
+    background-color: #FAD898;
+}

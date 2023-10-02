@@ -1,8 +1,35 @@
-<div class="square" @onclick="ClickHandler">@value</div>
+<div class="square @_currentClass" @onclick="ClickHandler">@_currentState</div>
 
-@functions {
-    [Parameter]
-    public char value {get;set;}
-    [Parameter]
-    public EventCallback ClickHandler {get;set;}
+@code {
+
+    private char _currentState;
+    private string _currentClass = "";
+
+    [Parameter, EditorRequired] public TicTacToeCell value { get; set; } = null!;
+
+    [Parameter] public EventCallback ClickHandler { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        this._currentState = this.ShowState(value.CurrentState);
+        this._currentClass = value.IsWinningCell ? "winning-cell" : "";
+    }
+
+    private char ShowState(CellState state)
+    {
+        char result;
+        switch (state)
+        {
+            case CellState.X:
+                result = 'X';
+                break;
+            case CellState.O:
+                result = 'O';
+                break;
+            default:
+                result = ' ';
+                break;
+        }
+        return result;
+    }
 }

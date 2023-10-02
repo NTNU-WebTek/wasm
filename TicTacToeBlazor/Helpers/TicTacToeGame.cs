@@ -26,9 +26,9 @@ namespace TicTacToeBlazor.Helpers
             }
         }
 
-        public char GetCellState(int index)
+        public TicTacToeCell GetCell(int index)
         {
-            return (char)this.board[index].CurrentState;
+            return this.board[index];
         }
 
         public void PlayCell(int index)
@@ -54,30 +54,34 @@ namespace TicTacToeBlazor.Helpers
 
         public CellState NextMove()
         {
-           CellState next = CellState.None;
-           if (this.State==GameState.NotFinished) {
-            next = isXNext ? CellState.X : CellState.O;
-           }
-           return next;
+            CellState next = CellState.None;
+            if (this.State == GameState.NotFinished)
+            {
+                next = isXNext ? CellState.X : CellState.O;
+            }
+            return next;
         }
 
         private void CheckForWinner()
         {
-            CellState winner = CheckColumns();
-
-            if (winner == CellState.None)
+            TicTacToeCell[] winnerCells = CheckColumns();
+            if (winnerCells.Length == 0)
             {
-                winner = this.CheckRows();
+                winnerCells = this.CheckRows();
             }
 
-            if (winner == CellState.None)
+            if (winnerCells.Length == 0)
             {
-                winner = this.CheckDiagnals();
+                winnerCells = this.CheckDiagnals();
             }
 
-            if (winner != CellState.None)
+            if (winnerCells.Length > 0)
             {
-                if (winner == CellState.X)
+                foreach (TicTacToeCell cell in winnerCells)
+                {
+                    cell.IsWinningCell = true;
+                }
+                if (winnerCells[0].CurrentState == CellState.X)
                 {
                     this.State = GameState.WinnerX;
                 }
@@ -96,52 +100,60 @@ namespace TicTacToeBlazor.Helpers
             }
         }
 
-        private CellState CheckColumns()
+        private TicTacToeCell[] CheckColumns()
         {
             for (int i = 0; i < 3; i++)
             {
-                CellState firstCell = this.board[i].CurrentState;
-                CellState secondCell = this.board[i + 3].CurrentState;
-                CellState ThirdCell = this.board[i + 6].CurrentState;
-                if (firstCell == secondCell && secondCell == ThirdCell)
+                TicTacToeCell firstCell = this.board[i];
+                TicTacToeCell secondCell = this.board[i + 3];
+                TicTacToeCell ThirdCell = this.board[i + 6];
+                if (IsWInningTriple(firstCell, secondCell, ThirdCell))
                 {
-                    return firstCell;
+
+                    return new TicTacToeCell[] { firstCell, secondCell, ThirdCell };
                 }
             }
-            return CellState.None;
+            return Array.Empty<TicTacToeCell>();
         }
 
 
-        private CellState CheckRows()
+        private TicTacToeCell[] CheckRows()
         {
             for (int i = 0; i < 3; i++)
             {
                 int indexOfset = i * 3;
-                CellState firstCell = this.board[indexOfset].CurrentState;
-                CellState secondCell = this.board[indexOfset + 1].CurrentState;
-                CellState ThirdCell = this.board[indexOfset + 2].CurrentState;
-                if (firstCell == secondCell && secondCell == ThirdCell)
+                TicTacToeCell firstCell = this.board[indexOfset];
+                TicTacToeCell secondCell = this.board[indexOfset + 1];
+                TicTacToeCell ThirdCell = this.board[indexOfset + 2];
+                if (IsWInningTriple(firstCell, secondCell, ThirdCell))
                 {
-                    return firstCell;
+                    return new TicTacToeCell[] { firstCell, secondCell, ThirdCell };
                 }
             }
-            return CellState.None;
+            return Array.Empty<TicTacToeCell>();
         }
 
-        private CellState CheckDiagnals()
+        private TicTacToeCell[] CheckDiagnals()
         {
             for (int i = 0; i < 2; i++)
             {
                 int indexOfset = i * 2;
-                CellState firstCell = this.board[indexOfset].CurrentState;
-                CellState secondCell = this.board[4].CurrentState;
-                CellState ThirdCell = this.board[8 - indexOfset].CurrentState;
-                if (firstCell == secondCell && secondCell == ThirdCell)
+                TicTacToeCell firstCell = this.board[indexOfset];
+                TicTacToeCell secondCell = this.board[4];
+                TicTacToeCell ThirdCell = this.board[8 - indexOfset];
+                if (IsWInningTriple(firstCell, secondCell, ThirdCell))
                 {
-                    return firstCell;
+                    return new TicTacToeCell[] { firstCell, secondCell, ThirdCell };
                 }
             }
-            return CellState.None;
+            return Array.Empty<TicTacToeCell>();
+        }
+
+        private static bool IsWInningTriple(TicTacToeCell first, TicTacToeCell second, TicTacToeCell third)
+        {
+            return first.CurrentState != CellState.None
+            && first.CurrentState == second.CurrentState
+            && second.CurrentState == third.CurrentState;
         }
 
         private bool IsFull()
@@ -160,54 +172,44 @@ namespace TicTacToeBlazor.Helpers
         }
 
 
-
-
-        public enum GameState
-        {
-            NotFinished,
-            Tie,
-            WinnerX,
-            WinnerO,
-        }
-        public enum CellState
-        {
-            None = ' ',
-            X = 'X',
-            O = 'O'
-        }
-
-        public class TicTacToeCell
-        {
-            private CellState currentState;
-
-            public CellState CurrentState
-            {
-                get
-                {
-                    return currentState;
-                }
-                private set
-                {
-                    currentState = value;
-                }
-            }
-
-            public TicTacToeCell()
-            {
-                this.currentState = CellState.None;
-            }
-
-            public bool PlayCell(CellState newState)
-            {
-                bool success = false;
-                if (this.currentState == CellState.None && newState != CellState.None)
-                {
-                    this.CurrentState = newState;
-                    success = true;
-                }
-                return success;
-            }
-
-        }
     }
+
+    public enum GameState
+    {
+        NotFinished,
+        Tie,
+        WinnerX,
+        WinnerO,
+    }
+    public enum CellState
+    {
+        None = ' ',
+        X = 'X',
+        O = 'O'
+    }
+
+    public class TicTacToeCell
+    {
+        public bool IsWinningCell { get; set; }
+
+        public CellState CurrentState { get; private set; }
+
+        public TicTacToeCell()
+        {
+            this.CurrentState = CellState.None;
+        }
+
+        public bool PlayCell(CellState newState)
+        {
+            bool success = false;
+            if (this.CurrentState == CellState.None && newState != CellState.None)
+            {
+                this.CurrentState = newState;
+                success = true;
+            }
+            return success;
+        }
+
+    }
+
 }

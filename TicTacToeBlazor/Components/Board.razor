@@ -5,16 +5,16 @@
 <h2>Game status</h2>
 @switch (game.State)
 {
-    case TicTacToeGame.GameState.NotFinished:
+    case GameState.NotFinished:
         <p>Next turn is: <b>@game.NextMove()</b>!</p>
         break;
-    case TicTacToeGame.GameState.Tie:
+    case GameState.Tie:
         <p>It's a <b>tie</b>!</p>
         break;
-    case TicTacToeGame.GameState.WinnerX:
+    case GameState.WinnerX:
         <p><b>X</b> wins! X always wins...</p>
         break;
-    case TicTacToeGame.GameState.WinnerO:
+    case GameState.WinnerO:
         <p><b>O</b> wins!</p>
         break;
 }
@@ -23,13 +23,13 @@
     @for (int i = 0; i < 9; i++)
     {
         int index = i;
-        <Square @key=index value=game.GetCellState(index) ClickHandler="@(() => HandleClick(index))" />
+        <Square @key=index value=game.GetCell(index) ClickHandler="@(() => HandleClick(index))" />
     }
 </div>
 
 <br />
 
-@if (game.State == TicTacToeGame.GameState.NotFinished)
+@if (game.State == GameState.NotFinished)
 {
     <button class="btn btn-primary" @onclick="() => game.ResetGame()">Reset!</button>
 } else {
@@ -38,12 +38,7 @@
 }
 
 @code {
-    private TicTacToeGame game;
-
-    public Board()
-    {
-        this.game = new TicTacToeGame();
-    }
+    private TicTacToeGame game = new TicTacToeGame();
     private void HandleClick(int i)
     {
         this.game.PlayCell(i);
