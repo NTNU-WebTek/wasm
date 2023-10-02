@@ -4,5 +4,50 @@
 <PageTitle>Tic-Tac-Toe</PageTitle>
 
 <h1>Tic-Tac-Toe</h1>
-<hr />
-<Board />
+<p>
+    Below is a simple Tic-Tac-Toe game. It is implemented in <b>C#</b> and is running in the browser using <a href="https://webassembly.org/" target="_blank">WebAssembly</a>!
+</p>
+
+
+<Board ClickHandler="@((i)=>HandleCellClick(i))"  game=@game/>
+
+
+<h2>Game status</h2>
+
+@switch (game.State)
+{
+    case GameState.NotFinished:
+        <p>Next turn is: <b>@game.NextMove()</b>!</p>
+        break;
+    case GameState.Tie:
+        <p>It's a <b>tie</b>!</p>
+        break;
+    case GameState.WinnerX:
+        <p><b>X</b> wins! X always wins...</p>
+        break;
+    case GameState.WinnerO:
+        <p><b>O</b> wins!</p>
+        break;
+}
+
+<br />
+
+@if (game.State == GameState.NotFinished)
+{
+    <button class="btn btn-primary" @onclick="() => game.ResetGame()">Reset!</button>
+} else {
+    <button class="btn btn-primary" @onclick="() => game.ResetGame()">Play again!</button>
+
+}
+
+
+@code {
+    private TicTacToeGame game = new TicTacToeGame();
+
+
+    private void HandleCellClick(int i)
+    {
+        game.PlayCell(i);
+    }
+
+}
