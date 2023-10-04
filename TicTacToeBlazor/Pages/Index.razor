@@ -1,16 +1,25 @@
 ﻿@page "/"
 
 <PageTitle>Index</PageTitle>
+<header>
+    <h1>Hello, world!</h1>
+    <p>Welcome to a Tic-Tac-Toe example implemented in <a href="https://docs.microsoft.com/aspnet"
+            target="_blank">Blazor WASM</a>.</p>
+</header>
+<section>
+    <h2>About</h2>
+    <p>This single-page application is an example in a WASM specializaiton project realized in <a
+            href="https://www.ntnu.edu/studies/courses/IDATA2506#tab=omEmnet" target="_blank">IDATA2506 - Computer science,
+            specialization course</a> at <a href="https://www.ntnu.edu/" target="_blank">NTNU</a>.<br>
+            Repository for this project can be found <a href="https://github.com/nokacper24/wasm-specialization-course"
+            target="_blank">here</a>.<br>
+        The purpose of this project is to showcase a <b>practical application of Blazor and WebAssembly</b> in modern web
+        development.</p>
 
-<h1>Hello, world!</h1>
-
-<p>Welcome to a Tic-Tac-Toe example implemented in <a href="https://docs.microsoft.com/aspnet" target="_blank">Blazor wasm</a>.</p>
-
-<p>This single-page application is a part of a <a href="https://github.com/nokacper24/wasm-specialization-course" target="_blank">WASM specializaiton project</a>.<br>
-The purpose of this project is to demonstrate the capabilities of Blazor and WebAssembly.</p>
-
-
-
-<NavLink class="btn btn-primary" href="tictactoe">
-    Play Tic-Tac-Toe
-</NavLink>
+</section>
+<section>
+    <h2>Play Now</h2>
+    <NavLink class="btn btn-primary" href="tictactoe">
+        Play Tic-Tac-Toe
+    </NavLink>
+</section>
