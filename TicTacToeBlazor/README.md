@@ -3,7 +3,7 @@ This is a simple Tic-Tac-Toe game implemented in [Blazor WASM](https://docs.micr
 The game logic is written entirely in C# and is execute within the browser using WASM.
 
 ## Demo
-A demo of the application can be found at [tictactoe-wasm.pages.dev](https://tictactoe-wasm.pages.dev/).
+A demo of the application can be found at [tictactoe-blazorwasm.pages.dev](https://tictactoe-blazorwasm.pages.dev/).
 
 ## Running application locally
 You will need [.NET](https://dotnet.microsoft.com/en-us/) installed on your machine.  
