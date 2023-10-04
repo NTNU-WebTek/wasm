@@ -1,6 +1,6 @@
 @using TicTacToeBlazor.Helpers.TicTacToeGame
 
-<div class="square @_currentClass" @onclick="ClickHandler">@_currentState</div>
+<div class="square @_currentClass" @onclick="ClickHandler" @onkeydown="OnKeyDown" tabindex="0">@_currentState</div>
 
 @code {
     private char _currentState;
@@ -14,6 +14,12 @@
     {
         this._currentState = this.ShowState(value.CurrentState);
         this._currentClass = value.IsWinningCell ? "winning-cell" : "";
+    }
+
+    private async Task OnKeyDown(KeyboardEventArgs e) {
+        if (e.Key == "Enter" || e.Key == " ") {
+            await this.ClickHandler.InvokeAsync(null);
+        }
     }
 
     private char ShowState(CellState state)
