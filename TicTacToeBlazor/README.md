@@ -1,5 +1,5 @@
 # Tic-Tac-Toe in Blazor WASM
-This is a simple Tic-Tac-Toe game implemented in Blazor WASM.  
+This is a simple Tic-Tac-Toe game implemented in [Blazor WASM](https://docs.microsoft.com/aspnet).  
 The game logic is written entirely in C# and is execute within the browser using WASM.
 
 ## Demo
