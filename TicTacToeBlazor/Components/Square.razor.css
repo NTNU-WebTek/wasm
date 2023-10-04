@@ -1,5 +1,5 @@
 .square {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8) ;
     border: 1px solid rgba(0, 0, 0, 0.8);
     width: 60px;
     height: 60px;
@@ -11,9 +11,14 @@
     cursor: pointer;
 }
 .square:hover {
-    background-color: #FAD898;
+    background-color: var(--highlight-color);
+}
+.square:focus-visible {
+    outline: none;
+    background-color: var(--highlight-color);
+    scale: 1.05;
 }
 
 .square.winning-cell {
-    background-color: #FAD898;
+    background-color: var(--highlight-color);
 }
