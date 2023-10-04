@@ -1,7 +1,8 @@
+@using TicTacToeBlazor.Helpers.TicTacToeGame
+
 <div class="square @_currentClass" @onclick="ClickHandler">@_currentState</div>
 
 @code {
-
     private char _currentState;
     private string _currentClass = "";
 
