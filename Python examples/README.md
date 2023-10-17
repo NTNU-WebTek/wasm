@@ -1,11 +1,23 @@
-To use python with WASM it only requires 2 very simple steps.
-This is possible thanks to Pyscript : https://pyscript.net/, which is basically based on pyodide which means "port of CPython to web assembly/Emscripten" project.
-It uses the same tools "Emscripten" as needed for C but it can be directly implemented without downloading or transforming anything.
+To be able to use Python as a front-end framework you can use Pyscript : https://pyscript.net/
+Be careful because it is still in phases of development so everything is not likely to be possible.
+Pyscript permits to build apps using Python and JavaScript programming languages. It can run Python code and projects in a web browser and use Python functions from JavaScript, and vice versa.
 
-The code can be executed in VS or directly into the browser : https://pyscript.com/ .
+PyScript web framework is compiled and made through CPython Interpreter from the following:
+-	Emscripten : https://emscripten.org/ . iI is the same as used for C language
+-	WebAssembly : https://webassembly.org/
+-	
+PyScript web framework is developed by the following technology stacks:
+-	TypeScript with JavaScript, which is used via the Svelte Framework
+-	Tailwind CSS framework which is used for styling
+-	Roolup.js framework which is used for program bundling.
+-	
+Web components, Python scripts, and custom elements are defined in PyScript, such as :
+-	`<py-button>` : Used to make a button.
+-	`<py-env>` : To use external Python libraries.
+-	`<py-script>` : To insert python code into web.
+It is possible to directly place the code into the HTML to display the content on the browser.
 
-1 - The first step is to add the following piece of code that refers to css and js tools : 
-    `<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>`
-
-2 - The second is to replace the usual html `<script>` by `<py-script>`.
+It requires very simple step and to make it work you have to use a script and PyScript CSS to trigger PyScript : 
+`<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>`
+The presence of pyscript.css enables the HTML tags to print the correct information saved in the HTML document and only opened in the web browser
