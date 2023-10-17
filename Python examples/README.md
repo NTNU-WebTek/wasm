@@ -3,7 +3,7 @@ Be careful because it is still in phases of development so everything is not lik
 Pyscript permits to build apps using Python and JavaScript programming languages. It can run Python code and projects in a web browser and use Python functions from JavaScript, and vice versa.
 
 PyScript web framework is compiled and made through CPython Interpreter from the following:
--	Emscripten : https://emscripten.org/ . iI is the same as used for C language
+-	Emscripten : https://emscripten.org/ . It is the same as used for C language
 -	WebAssembly : https://webassembly.org/
 -	
 PyScript web framework is developed by the following technology stacks:
