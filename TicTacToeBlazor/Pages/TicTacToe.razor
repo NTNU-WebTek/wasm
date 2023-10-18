@@ -1,4 +1,4 @@
-@page "/tictactoe";
+@page "/tictactoe"
 @using TicTacToeBlazor.Components;
 @using TicTacToeBlazor.Helpers.TicTacToeGame;
 
@@ -12,12 +12,11 @@
 <div class="container" style="margin-left: 0;">
     <div class="row justify-content-start">
         <div class="col-auto">
-            <Board ClickHandler="@((i)=>HandleCellClick(i))" cells=@game.GetCells() />
+            <Board ClickHandler="@HandleCellClick" cells=@game.GetCells() />
         </div>
         <div class="col-auto">
             <div>
                 <h3>Game status:</h3>
-
                 @switch (game.State)
                 {
                     case GameState.NotFinished:
@@ -45,20 +44,19 @@
             else
             {
                 <button class="btn btn-primary mt-3" @onclick="() => game.ResetGame()">Play again!</button>
-
             }
         </div>
     </div>
 </div>
 
 @code {
-    private TicTacToeGame game = new TicTacToeGame();
-
-    private String resetButtonText = "Reset!";
-
-    private void HandleCellClick(int i)
+    private TicTacToeGame game;
+    public TicTacToe()
     {
-        game.PlayCell(i);
+        game = new TicTacToeGame();
     }
-
+    private void HandleCellClick(int index)
+    {
+        game.PlayCell(index);
+    }
 }

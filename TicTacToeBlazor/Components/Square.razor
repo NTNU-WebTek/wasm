@@ -10,15 +10,25 @@
 
     [Parameter] public EventCallback ClickHandler { get; set; }
 
+    /// <summary>
+    /// Method invoked when the component has received parameters from its parent in the render tree,
+    /// and the incoming values have been assigned to properties.
+    /// </summary>
     protected override void OnParametersSet()
     {
         this._currentState = this.ShowState(value.CurrentState);
         this._currentClass = value.IsWinningCell ? "winning-cell" : "";
     }
 
-    private async Task OnKeyDown(KeyboardEventArgs e) {
-        if (e.Key == "Enter" || e.Key == " ") {
-            await this.ClickHandler.InvokeAsync(null);
+    /// <summary>
+    /// Handles keyboard events.
+    /// The cell can be selected by pressing the Enter or Space keys.
+    /// </summary>
+    private async Task OnKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" || e.Key == " ")
+        {
+            await this.ClickHandler.InvokeAsync();
         }
     }
 
