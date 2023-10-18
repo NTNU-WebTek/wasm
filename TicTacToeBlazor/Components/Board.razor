@@ -4,12 +4,13 @@
     @for (int i = 0; i < 9; i++)
     {
         int index = i;
-        <Square @key=index value=game.GetCell(index) ClickHandler="@(() => HandleClick(index))" />
+        <Square @key=index value=cells[index] ClickHandler="@(() => HandleClick(index))" />
     }
 </div>
 
 @code {
-    [Parameter, EditorRequired] public TicTacToeGame game { get; set;} = null!;
+
+    [Parameter, EditorRequired] public TicTacToeCell[] cells { get; set; } = null!;
 
     [Parameter] public EventCallback<int> ClickHandler { get; set; }
 

@@ -61,6 +61,20 @@ namespace TicTacToeBlazor.Helpers.TicTacToeGame
             return this.board[index];
         }
 
+
+        /// <summary>
+        /// Gets all cells.
+        /// </summary>
+        /// <remarks>
+        /// The cells are stored in a one-dimensional array.
+        /// (First three cells are the first row, etc.)
+        /// </remarks>
+        /// <returns>All cells. Indexed 0 through 8</returns>
+        public TicTacToeCell[] GetCells()
+        {
+            return this.board;
+        }
+
         /// <summary>
         /// Plays the cell at the specified index.
         /// </summary>
