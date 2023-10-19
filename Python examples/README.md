@@ -5,12 +5,12 @@ Pyscript permits to build apps using Python and JavaScript programming languages
 PyScript web framework is compiled and made through CPython Interpreter from the following:
 -	Emscripten : https://emscripten.org/ . It is the same as used for C language
 -	WebAssembly : https://webassembly.org/
--	
+
 PyScript web framework is developed by the following technology stacks:
 -	TypeScript with JavaScript, which is used via the Svelte Framework
 -	Tailwind CSS framework which is used for styling
 -	Roolup.js framework which is used for program bundling.
--	
+
 Web components, Python scripts, and custom elements are defined in PyScript, such as :
 -	`<py-button>` : Used to make a button.
 -	`<py-env>` : To use external Python libraries.
