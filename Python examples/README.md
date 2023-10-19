@@ -20,4 +20,5 @@ It is possible to directly place the code into the HTML to display the content o
 It requires very simple step and to make it work you have to use a script and PyScript CSS to trigger PyScript : 
 - `<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>`
 - `<script defer src="https://pyscript.net/latest/pyscript.js"></script>`
+
 The presence of pyscript.css enables the HTML tags to print the correct information saved in the HTML document and only opened in the web browser
