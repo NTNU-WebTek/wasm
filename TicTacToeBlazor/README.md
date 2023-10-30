@@ -44,7 +44,7 @@ A switch case is used to display different  message to the user, depending on th
         <p>Next turn is: <b>@game.NextMove()</b>!</p>
         break;
     case GameState.Tie:
-        <p>It's a tie!</p>
+        <p>Tie!</p>
         break;
     case GameState.WinnerX:
         <p>X wins! X always wins...</p>
