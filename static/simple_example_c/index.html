@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="add.js"></script>
+
+</head>
+
+<body>
+    <H1>Wasm example!</H1>
+    <p>Run C functions in the browser!</p>
+    
+    <input type="button" value="Click me!" onclick="callHello()">
+
+    <h2>Do addition in WASM!</h2>
+    <input type="number" id="num1" value="0">
+    <input type="number" id="num2" value="0">
+    <input type="button" value="add" onclick="addNumbers()">
+    <p id="result_paragraph"></p>
+
+    <script>
+        var add;
+        var hello;
+
+        Module.onRuntimeInitialized = async () => {
+            const cmodule = {
+                add: Module.cwrap('add', 'number', ['number', 'number']),
+                hello: Module.cwrap('hello','string',[])
+            };
+            add = cmodule.add;
+            hello= cmodule.hello;
+        };
+
+        function addNumbers() {
+            const num1 = document.getElementById('num1').value;
+            const num2 = document.getElementById('num2').value;
+            const result = add(num1, num2);
+            document.getElementById('result_paragraph').textContent = `Result: ${result}`;
+        }
+
+        function callHello() {
+            let value =  hello();
+            alert(value);
+        }
+
+    </script>
+</body>
+
+</html>
