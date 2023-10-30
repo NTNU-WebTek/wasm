@@ -71,8 +71,8 @@ Additionally, WASM allows developers to use other languages than JavaScript to b
 
 ## Examples
 We have prepared a few examples to showcase the capabilities of WASM. For more details about them, check the README in each example folder.  
-- Hello World in C
-- Hello World in Zig
-- Running Python in the browser
-- TicTacToe SPA in C# (Blazor framework)
-- TicTacToe SPA in Rust (Leptos framework)
+- [Hello World in C](/simple_example_c)
+- [Hello World in Zig](/simple_example_zig)
+- [Running Python in the browser](/python_examples)
+- [TicTacToe web app in C# (Blazor framework)](/TicTacToeBlazor)
+- [TicTacToe web app in Rust (Leptos framework)](/TicTacToeYew)
