@@ -75,4 +75,4 @@ We have prepared a few examples to showcase the capabilities of WASM. For more d
 - [Hello World in Zig](/simple_example_zig)
 - [Running Python in the browser](/python_examples)
 - [TicTacToe web app in C# (Blazor framework)](/TicTacToeBlazor)
-- [TicTacToe web app in Rust (Leptos framework)](/TicTacToeYew)
+- [TicTacToe web app in Rust (Yew framework)](/TicTacToeYew)
