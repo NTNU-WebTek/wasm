@@ -4,7 +4,7 @@ Get zig [here](https://ziglang.org/learn/getting-started/#package-managers) to c
 
 ### Building the webassembly
 ```bash
-zig build-lib -target wasm32-freestanding src/main.zig -dynamic
+zig build-lib -O ReleaseSmall -target wasm32-freestanding .\src\main.zig -dynamic -rdynamic
 ```
 
 If you have python installed you could simply run
