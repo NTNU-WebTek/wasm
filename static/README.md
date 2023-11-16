@@ -9,3 +9,7 @@ docker build -t static:latest .
 ```bash
 docker run -it --rm --init -p 3000:3000 static:latest
 ```
+
+
+# Live example available here:
+https://wasm-examples-ntnu.pages.dev/
