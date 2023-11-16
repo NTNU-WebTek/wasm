@@ -11,5 +11,6 @@ docker run -it --rm --init -p 3000:3000 static:latest
 ```
 
 
-# Live example available here:
+# Live example
+As of 16.11.2023 this link should work:
 https://wasm-examples-ntnu.pages.dev/
