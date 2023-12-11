@@ -1,8 +1,8 @@
 To be able to use Python as a front-end framework you can use Pyscript : https://pyscript.net/
 You can find the examples above at the following links :
-- `https://xhmontess.pyscriptapps.com/pythonwasm-calculator/latest/`
-- `https://xhmontess.pyscriptapps.com/python-wasm-tic-tac-toe/latest/`
-Be careful because it is still in phases of development so everything is not likely to be possible.
+- https://xhmontess.pyscriptapps.com/pythonwasm-calculator/latest/
+- https://xhmontess.pyscriptapps.com/python-wasm-tic-tac-toe/latest/
+- Be careful because it is still in phases of development so everything is not likely to be possible.
 Pyscript permits to build apps using Python and JavaScript programming languages. It can run Python code and projects in a web browser and use Python functions from JavaScript, and vice versa.
 
 PyScript web framework is compiled and made through CPython Interpreter from the following:
