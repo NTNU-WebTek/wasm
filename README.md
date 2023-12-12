@@ -44,8 +44,7 @@ Other projects worth mentioning:
     - [WAMR](https://bytecodealliance.github.io/wamr.dev/) (WebAssembly Micro Runtime)  
 
 ## How does the architecture look like, the pipeline? How does it look like technically?
-?? Architeture as in instruction set etc?  ??  
-?? What is meant by pipeline? compilation pipeline??  ??  
+WebAssembly's (WASM) architecture is a low-level, stack-based virtual machine using a binary instruction format. Its technical pipeline involves compilation from source languages like C, C++, Rust, into WASM bytecode, followed by optimization stages for efficiency and size reduction. Browsers load and execute WASM modules within their runtime environments, translating them into machine code for near-native performance. WASM seamlessly interoperates with JavaScript, allowing function calls between both languages. The pipeline encompasses compilation, optimization, loading, and execution stages. Similar to JavaScript, reloading an HTML page with WASM resets specific program states, though data persitance can be made possible through browser storage mechanisms, like local storage. 
 
 ## What happens when an HTML page is reloaded?
 It is similar to JavaScript. The program specific state (variables) is lost, it can however be saved to local storage in the browser or by using cookies.  
