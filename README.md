@@ -36,7 +36,12 @@ But garbage collected languages such as C# are supported... How?
 First of all, C# is compiled into CIL (Common Intermediate Language, equivalent to Java bytecode). CIL is run on the .NET runtime (equivalent to Java Virtual Machine), which is a virtual machine with a garbage collector. The way C# is run is by compiling the necesary runtime into WASM, and then running the CIL on top of that. This way the runtime runs directly in the browser, as an abstraction layer between the WASM and the C# code.
 
 ## Is WebAssembly running in the browser only, or can it run on backend?
-WASM can be run on the backend the same way as javascript can be run on the backend. There are frameworks that allow you to do that, such as [wasmer](https://wasmer.io/).
+WASI (WebAssembly System Interface) is a specification for running WASM outside of the browser. It is a system interface for WASM, allowing it to interact with the host operating system. It is maintained by the [Wasmtime project](https://wasmtime.dev/), same project responsible for Warmtime, a runtime for WASM - making it possible to running WASM outside of the browser!
+WASI is designed with portability and [security](https://github.com/bytecodealliance/wasmtime/blob/main/docs/security.md) in mind, making it a viableoption for running WASM on the backend.  
+Other projects worth mentioning:  
+    - [Wasmer](https://wasmer.io/)  
+    - [WasmEdge](https://wasmedge.org/)  
+    - [WAMR](https://bytecodealliance.github.io/wamr.dev/) (WebAssembly Micro Runtime)  
 
 ## How does the architecture look like, the pipeline? How does it look like technically?
 ?? Architeture as in instruction set etc?  ??  
@@ -44,12 +49,6 @@ WASM can be run on the backend the same way as javascript can be run on the back
 
 ## What happens when an HTML page is reloaded?
 It is similar to JavaScript. The program specific state (variables) is lost, it can however be saved to local storage in the browser or by using cookies.  
-
-<!-- ## Can WebAssembly access cookies?
-?? If a cookie can be accessed by JS, it can be accessed from WASM (using JS interfaces (FACT CHECK THAT)) ??   -->
-
-<!-- ## Can one use JS libraries and call JS functions from WebAssembly? How about the other way around?
-Yes, and YES. Do some examples maybe? -->
 
 ## How can one get started?
 Find your usecase.  
@@ -60,9 +59,6 @@ Check the documentation for further information!
 Again, depends on the language and framework used. Framerowks like Blazor (.NET) can easily be built and ran, and all you need is dotnet installed (which you need for any c# project anyway).  
 When it comes to languages like C, C++ or Rust, where you can execute your code without a special framework, all you need to do is setup your compiler with the correct compilation target. Check compiler documentation for that.
 
-<!-- ## Which operating systems are supported?
-Any operating system that can run a modern browser can run WASM. -->
-
 
 ## Use-cases
 WASM can be used for a variaty of applications.  
@@ -70,7 +66,8 @@ Notibly, some algorithms leverage the near-native performance of WASM, thus maki
 Additionally, WASM allows developers to use other languages than JavaScript to build web applications. This opens up the web to developers who are not familiar with JavaScript, or those who value type-safety and productivity of other languages.
 
 ## Examples
-We have prepared a few examples to showcase the capabilities of WASM. For more details about them, check the README in each example folder.  
+We have prepared a few examples to showcase the capabilities of WASM. You can explore the examples [here](https://wasm-examples-ntnu.pages.dev/).  
+For more details about them, check the README in each example folder.  
 - [Hello World in C](/simple_example_c)
 - [Hello World in Zig](/simple_example_zig)
 - [Running Python in the browser](/python_examples)
