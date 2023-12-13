@@ -21,10 +21,6 @@ All majors browser support WASM. Firefox, Safari and Chromium based browsers (Ch
 The biggest usecase for WASM is to use other languages than JavaScript to build your next web application. It is made rather easy by various framwerosks, which is covered in a later section.  
 WASM is designed to run alongside JavaScript, and can be called from JavaScript. At the same time, JavaScript can be called from WASM. This allows for interoperability between the two. Thus you can access all the browser APIs from WASM.  
 
-## Is there something one can’t do?
-?? WASM do not include the compiling garbage collected option of languages which seems to be a problem, MORE RESEARCH HERE... ??
-
-
 ## Which languages are supported?  
 As mentioned earlier, WASM serves as a compilation target for languages such as C, C++ or Rust. What is *special* about these languages is that the developers manage the memory. Higher level languages such as C# or Java use garbage collection which is not yet supported in WASM.
 
@@ -33,6 +29,7 @@ Here is a list of languages officailly supported by WASM: https://github.com/app
 ## Garbage collection
 As of now, garbege collector is not supported. This means, the WASM code has to manage its memory. This is normal in languages such as C, C++ or Rust.  
 But garbage collected languages such as C# are supported... How?  
+This is achieved by compiling the necessary runtime into WASM, and then executing the code on top of that. We can see this in action in the [TicTacToeBlazor](/TicTacToeBlazor) example. Here is a short explanation of how it works:  
 First of all, C# is compiled into CIL (Common Intermediate Language, equivalent to Java bytecode). CIL is run on the .NET runtime (equivalent to Java Virtual Machine), which is a virtual machine with a garbage collector. The way C# is run is by compiling the necesary runtime into WASM, and then running the CIL on top of that. This way the runtime runs directly in the browser, as an abstraction layer between the WASM and the C# code.
 
 ## Is WebAssembly running in the browser only, or can it run on backend?
