@@ -8,8 +8,10 @@ The abbreviation **WASM** is used throughout this document to refer to **Web Ass
 Web Assembly solves multiple problens. The most notable ones are language diversity and performance. WASM allows developers to use other languages than JavaScript in the browser, thus breaking the monopoly of JavaScript. Additionally WASM runs at near-native performance, which is in a lot of cases an improvement over JavaScript.
 
 ## What is Web Assembly?
-Web Assembly is essentially a low-level assembly-like language, with binary instruction foramt.  
-It is a compilation target for languages such as C, C++, Rust and more.
+According to webassembly.org:
+> WebAssembly (abbreviated Wasm) is a **binary instruction format for a stack-based virtual 
+> machine**. Wasm is designed as a **portable compilation target** for programming languages, 
+> enabling **deployment on the web** for client and server applications.
 
 ## Who owns or maintains it?
 WASM is maintained by [WebAssembly Working Group](https://www.w3.org/groups/wg/wasm/) at World Wide Web Consortium : [W3C](https://www.w3.org/). This means there are maintainers from all major browsers defining the specifications for WASM, and implementing it consistently in their browsers.
