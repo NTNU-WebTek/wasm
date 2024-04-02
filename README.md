@@ -30,21 +30,23 @@ browsers defining the specifications for WASM, and implementing it consistently 
 
 ## Which browsers support it?
 
-All majors browser support WASM. Firefox, Safari and Chromium based browsers (Chrome, Edge, etc).
+[All majors browser support WASM since 2017](https://caniuse.com/?search=WebAssembly): Firefox,
+Safari, Opera and Chromium based browsers (Chrome, Edge, etc).
 
 ## What can one do with WebAssembly?
 
-The biggest usecase for WASM is to use other languages than JavaScript to build your next web
+The biggest use case for WASM is to use other languages than JavaScript to build your next web
 application. It is made rather easy by various frameworks, which is covered in a later section.  
 WASM is designed to run alongside JavaScript, and can be called from JavaScript. At the same time,
-JavaScript can be called from WASM. This allows for interoperability between the two. Thus you can
+JavaScript can be called from WASM. This allows for interoperability between the two. Thus, you can
 access all the browser APIs from WASM.
 
 ## Which languages are supported?
 
-As mentioned earlier, WASM serves as a compilation target for languages such as C, C++ or Rust. What
-is *special* about these languages is that the developers manage the memory. Higher level languages
-such as C# or Java use garbage collection which is not yet supported in WASM.
+Initially, only memory-managed languages (such as C, C++, Rust) were supported as compilation
+targets for WASM, due to lack of garbage collection in WASM. However, since November 2023,
+[garbage collection is supported by an initiative WasmGC](https://developer.chrome.com/blog/wasmgc).
+Chrome now supports Garbage Collection by default.
 
 Here is a list of languages officially supported by
 WASM: https://github.com/appcypher/awesome-wasm-langs.
@@ -72,9 +74,10 @@ a runtime for WASM - making it possible to running WASM outside of the browser!
 WASI is designed with portability
 and [security](https://github.com/bytecodealliance/wasmtime/blob/main/docs/security.md) in mind,
 making it a viable option for running WASM on the backend.  
-Other projects worth mentioning:  
-- [Wasmer](https://wasmer.io/)  
-- [WasmEdge](https://wasmedge.org/)  
+Other projects worth mentioning:
+
+- [Wasmer](https://wasmer.io/)
+- [WasmEdge](https://wasmedge.org/)
 - [WAMR](https://bytecodealliance.github.io/wamr.dev/) (WebAssembly Micro Runtime)
 
 ## How does the architecture look like, the pipeline? How does it look like technically?
@@ -86,7 +89,7 @@ Browsers load and execute WASM modules within their runtime environments, transl
 machine code for near-native performance. WASM seamlessly interoperates with JavaScript, allowing
 function calls between both languages. The pipeline encompasses compilation, optimization, loading,
 and execution stages. Similar to JavaScript, reloading an HTML page with WASM resets specific
-program states, though data persistence can be made possible through browser storage mechanisms, 
+program states, though data persistence can be made possible through browser storage mechanisms,
 like
 local storage.
 
@@ -103,7 +106,7 @@ Check the documentation for further information!
 
 ## What tools are necessary? Compilers? Transpilers? Interpreters?
 
-Again, depends on the language and framework used. Frameworks like Blazor (.NET) can easily be 
+Again, depends on the language and framework used. Frameworks like Blazor (.NET) can easily be
 built
 and ran, and all you need is dotnet installed (which you need for any c# project anyway).  
 When it comes to languages like C, C++ or Rust, where you can execute your code without a special
